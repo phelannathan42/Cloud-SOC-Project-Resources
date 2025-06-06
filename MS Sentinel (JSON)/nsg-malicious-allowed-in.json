@@ -1,0 +1,7 @@
+{
+    "version": "1.0",
+    "description": "NSG rules allowing potential malicious inbound traffic",
+    "query": "AzureNetworkAnalytics_CL | where Direction_s == 'Inbound' and Action_s == 'Allow' and ThreatIntelIndicator_s has 'Malicious' | summarize count() by bin(TimeGenerated, 1h), SourceIP_s",
+    "visualization": "table",
+    "title": "NSG Allowed Inbound Malicious Flows"
+}

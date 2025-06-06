@@ -1,0 +1,7 @@
+{
+    "version": "1.0",
+    "description": "Detect SSH login failures on Linux systems",
+    "query": "Syslog | where ProcessName == 'sshd' and SyslogMessage has 'Failed password' | summarize count() by bin(TimeGenerated, 1h), Computer",
+    "visualization": "timechart",
+    "title": "Linux SSH Authentication Failures"
+}

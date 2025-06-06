@@ -1,0 +1,7 @@
+{
+    "version": "1.0",
+    "description": "Track RDP/SMB login failures on Windows systems",
+    "query": "SecurityEvent | where EventID == 4625 and LogonType in (10, 3) | summarize count() by bin(TimeGenerated, 1h), Account, WorkstationName",
+    "visualization": "linechart",
+    "title": "Windows RDP/SMB Authentication Failures"
+}

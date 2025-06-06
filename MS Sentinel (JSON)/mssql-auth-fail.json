@@ -1,0 +1,7 @@
+{
+    "version": "1.0",
+    "description": "Detect failed MSSQL authentication attempts",
+    "query": "SecurityEvent | where EventID == 4625 and AccountType == 'User' and TargetLogonId has 'MSSQL' | summarize count() by bin(TimeGenerated, 1h), Account",
+    "visualization": "barchart",
+    "title": "MSSQL Failed Login Attempts"
+}
